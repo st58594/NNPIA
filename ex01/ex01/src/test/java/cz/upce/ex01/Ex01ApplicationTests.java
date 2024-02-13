@@ -20,7 +20,6 @@ class Ex01ApplicationTests {
 	@Autowired
 	private PropertyController propertyController;
 
-
 	@Test
 	void contextLoads() throws Exception {
 		Assertions.assertThat(setController).isNotNull();
