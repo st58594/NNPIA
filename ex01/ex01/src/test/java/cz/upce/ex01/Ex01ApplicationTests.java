@@ -1,5 +1,6 @@
 package cz.upce.ex01;
 
+import cz.upce.ex01.controllers.PropertyController;
 import cz.upce.ex01.controllers.NoParameterController;
 import cz.upce.ex01.controllers.ParameterController;
 import cz.upce.ex01.controllers.SetController;
@@ -16,13 +17,15 @@ class Ex01ApplicationTests {
 	private NoParameterController noParameterController;
 	@Autowired
 	private ParameterController parameterController;
-
+	@Autowired
+	private PropertyController propertyController;
 
 	@Test
 	void contextLoads() throws Exception {
 		Assertions.assertThat(setController).isNotNull();
 		Assertions.assertThat(noParameterController).isNotNull();
 		Assertions.assertThat(parameterController).isNotNull();
+		Assertions.assertThat(propertyController).isNotNull();
 	}
 
 }
