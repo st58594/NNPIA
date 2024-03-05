@@ -9,9 +9,10 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface AppUserReposity extends JpaRepository<AppUser, Integer> {
-    @Query(value = "select * from app_user u " +
-            "join app_user_role aur on u.id = aur.app_user_id " +
-            "where role_id = ?1", nativeQuery = true)
-    List<AppUser> findAllByRoles(int role);
+public interface AppUserReposity extends JpaRepository<AppUser, Long> {
+    @Query(value = "SELECT au.* FROM app_user au " +
+            "JOIN app_user_role aur ON au.id = aur.app_user_id " +
+            "JOIN role r ON aur.role_id = r.id WHERE r.role = :role", nativeQuery = true)
+    List<AppUser> findByRole(String role);
+    List<AppUser> findAllByActiveEquals(boolean active);
 }
